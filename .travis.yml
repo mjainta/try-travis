@@ -7,9 +7,9 @@ python:
   - "3.7-dev" # 3.7 development branch
   - "nightly" # currently points to 3.7-dev
 # command to install dependencies
-install: make all
+install: pip install -r requirements.txt
 # command to run tests
 script:
-  - make unittest
-  - make linttest
-  - make lintstrdiver
+  - python -m unittest discover test/
+  - python -m pylint test
+  - python -m pylint strdiver
